@@ -1,9 +1,6 @@
-body {
-    background: #F2F3E5;
-}
-
 .navbar, .dropdown-menu {
     border: none;
+    background-color: #f3f3e5;
 }
 
 .nav > li > a, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a, .dropdown-menu > li {
@@ -64,5 +61,5 @@ body {
 
 .navbar-toggle .icon-bar {
     color: #fff;
-    background: #fff;
+    background-color: #f3f3e5 !important;
 }

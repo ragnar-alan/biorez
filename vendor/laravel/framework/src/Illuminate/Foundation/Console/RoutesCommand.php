@@ -8,7 +8,7 @@ use Symfony\Component\Console\Input\InputOption;
 
 class RoutesCommand extends Command {
 
-	/**
+    	/**
 	 * The console command name.
 	 *
 	 * @var string
@@ -83,7 +83,7 @@ class RoutesCommand extends Command {
 	{
 		$results = array();
 
-		foreach ($this->routes as $route)
+		foreach($this->routes as $route)
 		{
 			$results[] = $this->getRouteInformation($route);
 		}
@@ -94,6 +94,7 @@ class RoutesCommand extends Command {
 	/**
 	 * Get the route information for a given route.
 	 *
+	 * @param  string  $name
 	 * @param  \Illuminate\Routing\Route  $route
 	 * @return array
 	 */
@@ -175,7 +176,7 @@ class RoutesCommand extends Command {
 	/**
 	 * Get after filters
 	 *
-	 * @param  \Illuminate\Routing\Route  $route
+	 * @param  Route  $route
 	 * @return string
 	 */
 	protected function getAfterFilters($route)
@@ -196,8 +197,10 @@ class RoutesCommand extends Command {
 		{
 			return null;
 		}
-
-		return $route;
+		else
+		{
+			return $route;
+		}
 	}
 
 	/**

@@ -3,7 +3,6 @@
 use Closure;
 use ErrorException;
 use ReflectionFunction;
-use Symfony\Component\Debug\Exception\FatalThrowableError;
 use Illuminate\Support\Contracts\ResponsePreparerInterface;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\Debug\Exception\FatalErrorException as FatalError;
@@ -58,7 +57,6 @@ class Handler {
 	 * @param  \Illuminate\Support\Contracts\ResponsePreparerInterface  $responsePreparer
 	 * @param  \Illuminate\Exception\ExceptionDisplayerInterface  $plainDisplayer
 	 * @param  \Illuminate\Exception\ExceptionDisplayerInterface  $debugDisplayer
-	 * @param  bool  $debug
 	 * @return void
 	 */
 	public function __construct(ResponsePreparerInterface $responsePreparer,
@@ -201,7 +199,7 @@ class Handler {
 	 */
 	protected function isFatal($type)
 	{
-		return in_array($type, array(E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE));
+        return in_array($type, array(E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE));
 	}
 
 	/**
@@ -257,10 +255,6 @@ class Handler {
 			{
 				$response = $this->formatException($e);
 			}
-			catch (\Throwable $e)
-			{
-				$response = $this->formatException($e);
-			}
 
 			// If this handler returns a "non-null" response, we will return it so it will
 			// get sent back to the browsers. Once the handler returns a valid response
@@ -282,17 +276,13 @@ class Handler {
 	{
 		$displayer = $this->debug ? $this->debugDisplayer : $this->plainDisplayer;
 
-		if (! $exception instanceof \Exception) {
-			$exception = new FatalThrowableError($exception);
-		}
-
 		return $displayer->display($exception);
 	}
 
 	/**
 	 * Determine if the given handler handles this exception.
 	 *
-	 * @param  \Closure    $handler
+	 * @param  Closure    $handler
 	 * @param  \Exception  $exception
 	 * @return bool
 	 */
@@ -306,7 +296,7 @@ class Handler {
 	/**
 	 * Determine if the given handler type hints the exception.
 	 *
-	 * @param  \ReflectionFunction  $reflection
+	 * @param  ReflectionFunction  $reflection
 	 * @param  \Exception  $exception
 	 * @return bool
 	 */
@@ -340,7 +330,7 @@ class Handler {
 	/**
 	 * Register an application error handler.
 	 *
-	 * @param  \Closure  $callback
+	 * @param  Closure  $callback
 	 * @return void
 	 */
 	public function error(Closure $callback)
@@ -351,7 +341,7 @@ class Handler {
 	/**
 	 * Register an application error handler at the bottom of the stack.
 	 *
-	 * @param  \Closure  $callback
+	 * @param  Closure  $callback
 	 * @return void
 	 */
 	public function pushError(Closure $callback)

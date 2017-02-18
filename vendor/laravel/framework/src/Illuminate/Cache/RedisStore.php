@@ -66,8 +66,6 @@ class RedisStore extends TaggableStore implements StoreInterface {
 	{
 		$value = is_numeric($value) ? $value : serialize($value);
 
-		$minutes = max(1, $minutes);
-
 		$this->connection()->setex($this->prefix.$key, $minutes * 60, $value);
 	}
 
@@ -76,7 +74,7 @@ class RedisStore extends TaggableStore implements StoreInterface {
 	 *
 	 * @param  string  $key
 	 * @param  mixed   $value
-	 * @return int
+	 * @return void
 	 */
 	public function increment($key, $value = 1)
 	{
@@ -88,7 +86,7 @@ class RedisStore extends TaggableStore implements StoreInterface {
 	 *
 	 * @param  string  $key
 	 * @param  mixed   $value
-	 * @return int
+	 * @return void
 	 */
 	public function decrement($key, $value = 1)
 	{
@@ -133,7 +131,7 @@ class RedisStore extends TaggableStore implements StoreInterface {
 	/**
 	 * Begin executing a new tags operation.
 	 *
-	 * @param  array|mixed  $names
+	 * @param  array|dynamic  $names
 	 * @return \Illuminate\Cache\RedisTaggedCache
 	 */
 	public function tags($names)
@@ -144,7 +142,7 @@ class RedisStore extends TaggableStore implements StoreInterface {
 	/**
 	 * Get the Redis connection instance.
 	 *
-	 * @return \Predis\ClientInterface
+	 * @return \Predis\Connection\SingleConnectionInterface
 	 */
 	public function connection()
 	{

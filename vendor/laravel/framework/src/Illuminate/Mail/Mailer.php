@@ -87,7 +87,6 @@ class Mailer {
 	 *
 	 * @param  \Illuminate\View\Factory  $views
 	 * @param  \Swift_Mailer  $swift
-	 * @param  \Illuminate\Events\Dispatcher  $events
 	 * @return void
 	 */
 	public function __construct(Factory $views, Swift_Mailer $swift, Dispatcher $events = null)
@@ -127,8 +126,8 @@ class Mailer {
 	 *
 	 * @param  string|array  $view
 	 * @param  array  $data
-	 * @param  \Closure|string  $callback
-	 * @return void
+	 * @param  Closure|string  $callback
+	 * @return int
 	 */
 	public function send($view, array $data, $callback)
 	{
@@ -148,7 +147,7 @@ class Mailer {
 
 		$message = $message->getSwiftMessage();
 
-		$this->sendSwiftMessage($message);
+		return $this->sendSwiftMessage($message);
 	}
 
 	/**
@@ -156,15 +155,15 @@ class Mailer {
 	 *
 	 * @param  string|array  $view
 	 * @param  array   $data
-	 * @param  \Closure|string  $callback
+	 * @param  Closure|string  $callback
 	 * @param  string  $queue
-	 * @return mixed
+	 * @return void
 	 */
 	public function queue($view, array $data, $callback, $queue = null)
 	{
 		$callback = $this->buildQueueCallable($callback);
 
-		return $this->queue->push('mailer@handleQueuedMessage', compact('view', 'data', 'callback'), $queue);
+		$this->queue->push('mailer@handleQueuedMessage', compact('view', 'data', 'callback'), $queue);
 	}
 
 	/**
@@ -173,12 +172,12 @@ class Mailer {
 	 * @param  string  $queue
 	 * @param  string|array  $view
 	 * @param  array   $data
-	 * @param  \Closure|string  $callback
-	 * @return mixed
+	 * @param  Closure|string  $callback
+	 * @return void
 	 */
 	public function queueOn($queue, $view, array $data, $callback)
 	{
-		return $this->queue($view, $data, $callback, $queue);
+		$this->queue($view, $data, $callback, $queue);
 	}
 
 	/**
@@ -187,15 +186,15 @@ class Mailer {
 	 * @param  int  $delay
 	 * @param  string|array  $view
 	 * @param  array  $data
-	 * @param  \Closure|string  $callback
+	 * @param  Closure|string  $callback
 	 * @param  string  $queue
-	 * @return mixed
+	 * @return void
 	 */
 	public function later($delay, $view, array $data, $callback, $queue = null)
 	{
 		$callback = $this->buildQueueCallable($callback);
 
-		return $this->queue->later($delay, 'mailer@handleQueuedMessage', compact('view', 'data', 'callback'), $queue);
+		$this->queue->later($delay, 'mailer@handleQueuedMessage', compact('view', 'data', 'callback'), $queue);
 	}
 
 	/**
@@ -205,12 +204,12 @@ class Mailer {
 	 * @param  int  $delay
 	 * @param  string|array  $view
 	 * @param  array  $data
-	 * @param  \Closure|string  $callback
-	 * @return mixed
+	 * @param  Closure|string  $callback
+	 * @return void
 	 */
 	public function laterOn($queue, $delay, $view, array $data, $callback)
 	{
-		return $this->later($delay, $view, $data, $callback, $queue);
+		$this->later($delay, $view, $data, $callback, $queue);
 	}
 
 	/**
@@ -350,7 +349,7 @@ class Mailer {
 	/**
 	 * Call the provided message builder.
 	 *
-	 * @param  \Closure|string  $callback
+	 * @param  Closure|string  $callback
 	 * @param  \Illuminate\Mail\Message  $message
 	 * @return mixed
 	 *
@@ -414,16 +413,6 @@ class Mailer {
 	}
 
 	/**
-	 * Check if the mailer is pretending to send messages.
-	 *
-	 * @return bool
-	 */
-	public function isPretending()
-	{
-		return $this->pretending;
-	}
-
-	/**
 	 * Get the view factory instance.
 	 *
 	 * @return \Illuminate\View\Factory
@@ -468,7 +457,7 @@ class Mailer {
 	 * Set the log writer instance.
 	 *
 	 * @param  \Illuminate\Log\Writer  $logger
-	 * @return $this
+	 * @return \Illuminate\Mail\Mailer
 	 */
 	public function setLogger(Writer $logger)
 	{
@@ -481,7 +470,7 @@ class Mailer {
 	 * Set the queue manager instance.
 	 *
 	 * @param  \Illuminate\Queue\QueueManager  $queue
-	 * @return $this
+	 * @return \Illuminate\Mail\Mailer
 	 */
 	public function setQueue(QueueManager $queue)
 	{

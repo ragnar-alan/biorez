@@ -79,14 +79,14 @@ class Composer {
 	 */
 	protected function getProcess()
 	{
-		return (new Process('', $this->workingPath))->setTimeout(null);
+		return with(new Process('', $this->workingPath))->setTimeout(null);
 	}
 
 	/**
 	 * Set the working path used by the class.
 	 *
 	 * @param  string  $path
-	 * @return $this
+	 * @return \Illuminate\Foundation\Composer
 	 */
 	public function setWorkingPath($path)
 	{

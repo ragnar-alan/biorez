@@ -1,7 +1,6 @@
 <?php namespace Illuminate\View\Engines;
 
 use Illuminate\View\Compilers\CompilerInterface;
-use Symfony\Component\Debug\Exception\FatalThrowableError;
 
 class CompilerEngine extends PhpEngine {
 
@@ -65,20 +64,15 @@ class CompilerEngine extends PhpEngine {
 	 * Handle a view exception.
 	 *
 	 * @param  \Exception  $e
-	 * @param  int  $obLevel
 	 * @return void
 	 *
 	 * @throws $e
 	 */
-	protected function handleViewException($e, $obLevel)
+	protected function handleViewException($e)
 	{
-		if (! $e instanceof \Exception) {
-			$e = new FatalThrowableError($e);
-		}
-
 		$e = new \ErrorException($this->getMessage($e), 0, 1, $e->getFile(), $e->getLine(), $e);
 
-		parent::handleViewException($e, $obLevel);
+		ob_get_clean(); throw $e;
 	}
 
 	/**

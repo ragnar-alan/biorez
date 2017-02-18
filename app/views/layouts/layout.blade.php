@@ -6,11 +6,19 @@
     @include('layouts.header')
 </head>
 <body>
-    <div class="menu">
-        @include('layouts.menu')
-    </div>
-    <div class="container">
-        @yield('content')
+    <div class="container-full">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="menu">
+                    @include('fragments.menu')
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                @yield('content')
+            </div>
+        </div>
     </div>
 
     @include('layouts.footer')

@@ -91,9 +91,9 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	 * Create a new Paginator instance.
 	 *
 	 * @param  \Illuminate\Pagination\Factory  $factory
-	 * @param  array     $items
-	 * @param  int       $total
-	 * @param  int|null  $perPage
+	 * @param  array  $items
+	 * @param  int    $total
+	 * @param  mixed  $perPage
 	 * @return void
 	 */
 	public function __construct(Factory $factory, array $items, $total, $perPage = null)
@@ -103,8 +103,8 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 		if (is_null($perPage))
 		{
 			$this->perPage = (int) $total;
-			$this->hasMore = count($items) > $this->perPage;
-			$this->items = array_slice($items, 0, $this->perPage);
+			$this->items = array_slice($items, 0, $perPage);
+			$this->hasMore = count(array_slice($items, $this->perPage, 1)) > 0;
 		}
 		else
 		{
@@ -117,7 +117,7 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	/**
 	 * Setup the pagination context (current and last page).
 	 *
-	 * @return $this
+	 * @return \Illuminate\Pagination\Paginator
 	 */
 	public function setupPaginationContext()
 	{
@@ -143,7 +143,7 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 		}
 		else
 		{
-			$this->lastPage = max((int) ceil($this->total / $this->perPage), 1);
+			$this->lastPage = (int) ceil($this->total / $this->perPage);
 
 			$this->currentPage = $this->calculateCurrentPage($this->lastPage);
 		}
@@ -207,7 +207,7 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	/**
 	 * Get a URL for a given page number.
 	 *
-	 * @param  int  $page
+	 * @param  int     $page
 	 * @return string
 	 */
 	public function getUrl($page)
@@ -221,7 +221,7 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 		// to the URL. This allows for extra information like sortings storage.
 		if (count($this->query) > 0)
 		{
-			$parameters = array_merge($this->query, $parameters);
+			$parameters = array_merge($parameters, $this->query);
 		}
 
 		$fragment = $this->buildFragment();
@@ -233,15 +233,13 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	 * Get / set the URL fragment to be appended to URLs.
 	 *
 	 * @param  string|null  $fragment
-	 * @return $this|string
+	 * @return \Illuminate\Pagination\Paginator|string
 	 */
 	public function fragment($fragment = null)
 	{
 		if (is_null($fragment)) return $this->fragment;
 
-		$this->fragment = $fragment;
-
-		return $this;
+		$this->fragment = $fragment; return $this;
 	}
 
 	/**
@@ -259,7 +257,7 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	 *
 	 * @param  string  $key
 	 * @param  string  $value
-	 * @return $this
+	 * @return \Illuminate\Pagination\Paginator
 	 */
 	public function appends($key, $value = null)
 	{
@@ -272,7 +270,7 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	 * Add an array of query string values.
 	 *
 	 * @param  array  $keys
-	 * @return $this
+	 * @return \Illuminate\Pagination\Paginator
 	 */
 	protected function appendArray(array $keys)
 	{
@@ -289,7 +287,7 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	 *
 	 * @param  string  $key
 	 * @param  string  $value
-	 * @return $this
+	 * @return \Illuminate\Pagination\Paginator
 	 */
 	public function addQuery($key, $value)
 	{
@@ -323,8 +321,10 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 		{
 			return $this->currentPage;
 		}
-
-		return min($this->currentPage, (int) ceil($total / $this->perPage));
+		else
+		{
+			return min($this->currentPage, (int) ceil($total / $this->perPage));
+		}
 	}
 
 	/**
@@ -432,7 +432,7 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	/**
 	 * Get an iterator for the items.
 	 *
-	 * @return \ArrayIterator
+	 * @return ArrayIterator
 	 */
 	public function getIterator()
 	{
@@ -532,8 +532,8 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	/**
 	 * Call a method on the underlying Collection
 	 *
-	 * @param  string  $method
-	 * @param  array   $arguments
+	 * @param string $method
+	 * @param array  $arguments
 	 * @return mixed
 	 */
 	public function __call($method, $arguments)

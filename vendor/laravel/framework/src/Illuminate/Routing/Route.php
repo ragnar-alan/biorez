@@ -1,5 +1,6 @@
 <?php namespace Illuminate\Routing;
 
+use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Matching\UriValidator;
 use Illuminate\Routing\Matching\HostValidator;
@@ -86,11 +87,6 @@ class Route {
 		$this->methods = (array) $methods;
 		$this->action = $this->parseAction($action);
 
-		if (in_array('GET', $this->methods) && ! in_array('HEAD', $this->methods))
-		{
-			$this->methods[] = 'HEAD';
-		}
-
 		if (isset($this->action['prefix']))
 		{
 			$this->prefix($this->action['prefix']);
@@ -157,7 +153,14 @@ class Route {
 	{
 		preg_match_all('/\{(\w+?)\?\}/', $this->uri, $matches);
 
-		return isset($matches[1]) ? array_fill_keys($matches[1], null) : [];
+		$optional = array();
+
+		if (isset($matches[1]))
+		{
+			foreach ($matches[1] as $key) { $optional[$key] = null; }
+		}
+
+		return $optional;
 	}
 
 	/**
@@ -208,7 +211,7 @@ class Route {
 	{
 		if (is_array($filters)) return static::explodeArrayFilters($filters);
 
-		return array_map('trim', explode('|', $filters));
+		return explode('|', $filters);
 	}
 
 	/**
@@ -223,7 +226,7 @@ class Route {
 
 		foreach ($filters as $filter)
 		{
-			$results = array_merge($results, array_map('trim', explode('|', $filter)));
+			$results = array_merge($results, explode('|', $filter));
 		}
 
 		return $results;
@@ -259,7 +262,7 @@ class Route {
 	 * Get a given parameter from the route.
 	 *
 	 * @param  string  $name
-	 * @param  mixed   $default
+	 * @param  mixed  $default
 	 * @return string
 	 */
 	public function getParameter($name, $default = null)
@@ -271,19 +274,19 @@ class Route {
 	 * Get a given parameter from the route.
 	 *
 	 * @param  string  $name
-	 * @param  mixed   $default
+	 * @param  mixed  $default
 	 * @return string
 	 */
 	public function parameter($name, $default = null)
 	{
-		return array_get($this->parameters(), $name, $default);
+		return array_get($this->parameters(), $name) ?: $default;
 	}
 
 	/**
 	 * Set a parameter to the given value.
 	 *
 	 * @param  string  $name
-	 * @param  mixed   $value
+	 * @param  mixed  $value
 	 * @return void
 	 */
 	public function setParameter($name, $value)
@@ -296,7 +299,7 @@ class Route {
 	/**
 	 * Unset a parameter on the route if it is set.
 	 *
-	 * @param  string  $name
+	 * @param  string $name
 	 * @return void
 	 */
 	public function forgetParameter($name)
@@ -365,7 +368,7 @@ class Route {
 	 * Bind the route to a given request for execution.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
-	 * @return $this
+	 * @return \Illuminate\Routing\Route
 	 */
 	public function bind(Request $request)
 	{
@@ -423,7 +426,6 @@ class Route {
 	 * Extract the parameter list from the host part of the request.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
-	 * @param  array  $parameters
 	 * @return array
 	 */
 	protected function bindHostParameters(Request $request, $parameters)
@@ -470,7 +472,7 @@ class Route {
 	/**
 	 * Parse the route action into a standard array.
 	 *
-	 * @param  callable|array  $action
+	 * @param  \Closure|array  $action
 	 * @return array
 	 */
 	protected function parseAction($action)
@@ -478,7 +480,7 @@ class Route {
 		// If the action is already a Closure instance, we will just set that instance
 		// as the "uses" property, because there is nothing else we need to do when
 		// it is available. Otherwise we will need to find it in the action list.
-		if (is_callable($action))
+		if ($action instanceof Closure)
 		{
 			return array('uses' => $action);
 		}
@@ -504,7 +506,7 @@ class Route {
 	{
 		return array_first($action, function($key, $value)
 		{
-			return is_callable($value);
+			return $value instanceof Closure;
 		});
 	}
 
@@ -530,7 +532,7 @@ class Route {
 	 * Add before filters to the route.
 	 *
 	 * @param  string  $filters
-	 * @return $this
+	 * @return \Illuminate\Routing\Route
 	 */
 	public function before($filters)
 	{
@@ -541,7 +543,7 @@ class Route {
 	 * Add after filters to the route.
 	 *
 	 * @param  string  $filters
-	 * @return $this
+	 * @return \Illuminate\Routing\Route
 	 */
 	public function after($filters)
 	{
@@ -553,17 +555,13 @@ class Route {
 	 *
 	 * @param  string  $type
 	 * @param  string  $filters
-	 * @return $this
+	 * @return \Illuminate\Routing\Route
 	 */
 	protected function addFilters($type, $filters)
 	{
-		$filters = static::explodeFilters($filters);
-
 		if (isset($this->action[$type]))
 		{
-			$existing = static::explodeFilters($this->action[$type]);
-
-			$this->action[$type] = array_merge($existing, $filters);
+			$this->action[$type] .= '|'.$filters;
 		}
 		else
 		{
@@ -578,7 +576,7 @@ class Route {
 	 *
 	 * @param  string  $key
 	 * @param  mixed  $value
-	 * @return $this
+	 * @return \Illuminate\Routing\Route
 	 */
 	public function defaults($key, $value)
 	{
@@ -592,7 +590,7 @@ class Route {
 	 *
 	 * @param  array|string  $name
 	 * @param  string  $expression
-	 * @return $this
+	 * @return \Illuminate\Routing\Route
 	 */
 	public function where($name, $expression = null)
 	{
@@ -609,7 +607,7 @@ class Route {
 	 *
 	 * @param  array|string  $name
 	 * @param  string  $expression
-	 * @return array
+	 * @return \Illuminate\Routing\Route
 	 */
 	protected function parseWhere($name, $expression)
 	{
@@ -620,7 +618,7 @@ class Route {
 	 * Set a list of regular expression requirements on the route.
 	 *
 	 * @param  array  $wheres
-	 * @return $this
+	 * @return \Illuminate\Routing\Route
 	 */
 	protected function whereArray(array $wheres)
 	{
@@ -636,7 +634,7 @@ class Route {
 	 * Add a prefix to the route URI.
 	 *
 	 * @param  string  $prefix
-	 * @return $this
+	 * @return \Illuminate\Routing\Route
 	 */
 	public function prefix($prefix)
 	{
@@ -722,7 +720,7 @@ class Route {
 	 */
 	public function domain()
 	{
-		return isset($this->action['domain']) ? $this->action['domain'] : null;
+		return array_get($this->action, 'domain');
 	}
 
 	/**
@@ -755,7 +753,7 @@ class Route {
 	 */
 	public function getPrefix()
 	{
-		return isset($this->action['prefix']) ? $this->action['prefix'] : null;
+		return array_get($this->action, 'prefix');
 	}
 
 	/**
@@ -765,7 +763,7 @@ class Route {
 	 */
 	public function getName()
 	{
-		return isset($this->action['as']) ? $this->action['as'] : null;
+		return array_get($this->action, 'as');
 	}
 
 	/**
@@ -775,7 +773,7 @@ class Route {
 	 */
 	public function getActionName()
 	{
-		return isset($this->action['controller']) ? $this->action['controller'] : 'Closure';
+		return array_get($this->action, 'controller', 'Closure');
 	}
 
 	/**
@@ -792,7 +790,7 @@ class Route {
 	 * Set the action array for the route.
 	 *
 	 * @param  array  $action
-	 * @return $this
+	 * @return \Illuminate\Routing\Route
 	 */
 	public function setAction(array $action)
 	{

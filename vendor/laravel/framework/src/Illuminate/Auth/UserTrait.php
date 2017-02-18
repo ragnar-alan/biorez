@@ -29,7 +29,7 @@ trait UserTrait {
 	 */
 	public function getRememberToken()
 	{
-		return $this->{$this->getRememberTokenName()};
+		return $this->remember_token;
 	}
 
 	/**
@@ -40,7 +40,7 @@ trait UserTrait {
 	 */
 	public function setRememberToken($value)
 	{
-		$this->{$this->getRememberTokenName()} = $value;
+		$this->remember_token = $value;
 	}
 
 	/**

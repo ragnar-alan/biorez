@@ -1,6 +1,5 @@
 <?php namespace Illuminate\Foundation\Console;
 
-use Boris\Boris;
 use Illuminate\Console\Command;
 
 class TinkerCommand extends Command {
@@ -47,7 +46,7 @@ class TinkerCommand extends Command {
 	{
 		$this->setupBorisErrorHandling();
 
-		(new Boris('> '))->start();
+		with(new \Boris\Boris('> '))->start();
 	}
 
 	/**
@@ -92,10 +91,6 @@ class TinkerCommand extends Command {
 			// loop going so we can keep executing commands. However, when a fatal
 			// error occurs, we have no choice but to bail out of this routines.
 			catch (\Exception $e)
-			{
-				$this->error($e->getMessage());
-			}
-			catch (\Throwable $e)
 			{
 				$this->error($e->getMessage());
 			}

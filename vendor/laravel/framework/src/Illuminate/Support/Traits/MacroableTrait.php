@@ -16,7 +16,7 @@ trait MacroableTrait {
 	 * @param  callable  $macro
 	 * @return void
 	 */
-	public static function macro($name, callable $macro)
+	public static function macro($name, $macro)
 	{
 		static::$macros[$name] = $macro;
 	}
@@ -52,7 +52,7 @@ trait MacroableTrait {
 	}
 
 	/**
-	 * Dynamically handle calls to the class.
+	 * Dynamically handle calls to the form builder.
 	 *
 	 * @param  string  $method
 	 * @param  array   $parameters

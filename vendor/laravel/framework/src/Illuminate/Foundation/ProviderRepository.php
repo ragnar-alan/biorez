@@ -43,6 +43,7 @@ class ProviderRepository {
 	 *
 	 * @param  \Illuminate\Foundation\Application  $app
 	 * @param  array  $providers
+	 * @param  string  $path
 	 * @return void
 	 */
 	public function load(Application $app, array $providers)

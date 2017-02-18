@@ -89,7 +89,7 @@ class Command extends \Symfony\Component\Console\Command\Command {
 	 *
 	 * @param  \Symfony\Component\Console\Input\InputInterface  $input
 	 * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-	 * @return int
+	 * @return integer
 	 */
 	public function run(InputInterface $input, OutputInterface $output)
 	{
@@ -117,7 +117,7 @@ class Command extends \Symfony\Component\Console\Command\Command {
 	 *
 	 * @param  string  $command
 	 * @param  array   $arguments
-	 * @return int
+	 * @return integer
 	 */
 	public function call($command, array $arguments = array())
 	{
@@ -133,7 +133,7 @@ class Command extends \Symfony\Component\Console\Command\Command {
 	 *
 	 * @param  string  $command
 	 * @param  array   $arguments
-	 * @return int
+	 * @return integer
 	 */
 	public function callSilent($command, array $arguments = array())
 	{
@@ -177,7 +177,7 @@ class Command extends \Symfony\Component\Console\Command\Command {
 	 * @param  bool    $default
 	 * @return bool
 	 */
-	public function confirm($question, $default = false)
+	public function confirm($question, $default = true)
 	{
 		$helper = $this->getHelperSet()->get('question');
 
@@ -205,9 +205,9 @@ class Command extends \Symfony\Component\Console\Command\Command {
 	/**
 	 * Prompt the user for input with auto completion.
 	 *
-	 * @param  string  $question
-	 * @param  array   $choices
-	 * @param  string  $default
+	 * @param  string $question
+	 * @param  array  $choices
+	 * @param  string $default
 	 * @return string
 	 */
 	public function askWithCompletion($question, array $choices, $default = null)
@@ -220,6 +220,7 @@ class Command extends \Symfony\Component\Console\Command\Command {
 
 		return $helper->ask($this->input, $this->output, $question);
 	}
+
 
 	/**
 	 * Prompt the user for input but hide the answer from the console.
@@ -242,11 +243,11 @@ class Command extends \Symfony\Component\Console\Command\Command {
 	/**
 	 * Give the user a single choice from an array of answers.
 	 *
-	 * @param  string  $question
-	 * @param  array   $choices
-	 * @param  string  $default
-	 * @param  mixed   $attempts
-	 * @param  bool    $multiple
+	 * @param  string $question
+	 * @param  array  $choices
+	 * @param  string $default
+	 * @param  bool   $multiple
+	 * @param  mixed  $attempts
 	 * @return bool
 	 */
 	public function choice($question, array $choices, $default = null, $attempts = null, $multiple = null)
@@ -260,14 +261,14 @@ class Command extends \Symfony\Component\Console\Command\Command {
 		return $helper->ask($this->input, $this->output, $question);
 	}
 
-	/**
-	 * Format input to textual table
-	 *
-	 * @param  array   $headers
-	 * @param  array   $rows
-	 * @param  string  $style
-	 * @return void
-	 */
+    /**
+     * Format input to textual table
+     *
+     * @param  array $headers
+     * @param  array $rows
+     * @param string $style
+     * @return void
+     */
 	public function table(array $headers, array $rows, $style = 'default')
 	{
 		$table = new Table($this->output);
@@ -361,7 +362,7 @@ class Command extends \Symfony\Component\Console\Command\Command {
 	}
 
 	/**
-	 * Get the Laravel application instance.
+	 * Set the Laravel application instance.
 	 *
 	 * @return \Illuminate\Foundation\Application
 	 */

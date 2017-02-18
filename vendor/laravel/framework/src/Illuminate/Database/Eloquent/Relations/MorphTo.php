@@ -67,7 +67,7 @@ class MorphTo extends BelongsTo {
 	/**
 	 * Build a dictionary with the models.
 	 *
-	 * @param  \Illuminate\Database\Eloquent\Collection  $models
+	 * @param  \Illuminate\Database\Eloquent\Models  $models
 	 * @return void
 	 */
 	protected function buildDictionary(Collection $models)
@@ -104,7 +104,7 @@ class MorphTo extends BelongsTo {
 	{
 		$this->parent->setAttribute($this->foreignKey, $model->getKey());
 
-		$this->parent->setAttribute($this->morphType, $model->getMorphClass());
+		$this->parent->setAttribute($this->morphType, get_class($model));
 
 		return $this->parent->setRelation($this->relation, $model);
 	}
@@ -157,13 +157,14 @@ class MorphTo extends BelongsTo {
 	{
 		$instance = $this->createModelByType($type);
 
+		if ($this->withTrashed && $instance->newQuery()->getMacro('withTrashed') !== null)
+		{
+			$instance = $instance->withTrashed();
+		}
+
 		$key = $instance->getKeyName();
 
-		$query = $instance->newQuery();
-
-		$query = $this->useWithTrashed($query);
-
-		return $query->whereIn($key, $this->gatherKeysByType($type)->all())->get();
+		return $instance->whereIn($key, $this->gatherKeysByType($type)->all())->get();
 	}
 
 	/**
@@ -195,16 +196,6 @@ class MorphTo extends BelongsTo {
 	}
 
 	/**
-	 * Get the foreign key "type" name.
-	 *
-	 * @return string
-	 */
-	public function getMorphType()
-	{
-		return $this->morphType;
-	}
-
-	/**
 	 * Get the dictionary used by the relationship.
 	 *
 	 * @return array
@@ -217,30 +208,13 @@ class MorphTo extends BelongsTo {
 	/**
 	 * Fetch soft-deleted model instances with query
 	 *
-	 * @return $this
+	 * @return MorphTo
 	 */
 	public function withTrashed()
 	{
 		$this->withTrashed = true;
 
-		$this->query = $this->useWithTrashed($this->query);
-
 		return $this;
-	}
-
-	/**
-	 * Return trashed models with query if told so
-	 *
-	 * @param  \Illuminate\Database\Eloquent\Builder  $query
-	 * @return \Illuminate\Database\Eloquent\Builder
-	 */
-	protected function useWithTrashed(Builder $query)
-	{
-		if ($this->withTrashed && $query->getMacro('withTrashed') !== null)
-		{
-			return $query->withTrashed();
-		}
-		return $query;
 	}
 
 }

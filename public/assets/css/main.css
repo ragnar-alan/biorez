@@ -1,0 +1,41 @@
+body {
+    background-color: #f3f3e5 !important;
+}
+.menu{
+    margin-bottom: 6rem;
+}
+.col-lg-4.main-box {
+    padding: 5rem;
+}
+.main-box {
+    padding-top: 5rem;
+    min-height: 30rem !important;
+}
+ul.originalHtml{
+    list-style: disc;
+}
+.slider{
+    height: 33rem;
+    padding: 4rem 0 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../image/slider_bg.png');
+}
+.minimal-padding {
+    padding: 5px;
+}
+.logo-width {
+    width: 5rem;
+}
+i.circle
+{
+    padding: 10px 15px;
+    display: inline-block;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    -moz-box-shadow: 0px 0px 2px 3px #5ea30f;
+    -webkit-box-shadow: 0px 0px 2px 3px #5ea30f;
+    box-shadow: 0px 0px 2px 3px #5ea30f;
+}

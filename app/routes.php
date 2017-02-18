@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'HomeController@showWelcome');
+Route::get('/history', 'HistoryController@show');
+Route::get('/about', 'AboutController@show');

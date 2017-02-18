@@ -26,7 +26,6 @@ abstract class HasOneOrMany extends Relation {
 	 * @param  \Illuminate\Database\Eloquent\Builder  $query
 	 * @param  \Illuminate\Database\Eloquent\Model  $parent
 	 * @param  string  $foreignKey
-	 * @param  string  $localKey
 	 * @return void
 	 */
 	public function __construct(Builder $query, Model $parent, $foreignKey, $localKey)
@@ -269,7 +268,7 @@ abstract class HasOneOrMany extends Relation {
 	}
 
 	/**
-	 * Get the key value of the parent's local key.
+	 * Get the key value of the paren's local key.
 	 *
 	 * @return mixed
 	 */
