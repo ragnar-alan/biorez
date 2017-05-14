@@ -1,5 +1,10 @@
 @extends('layouts.layout')
 @section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
 
-asdf
+            </div>
+        </div>
+    </div>
 @stop
