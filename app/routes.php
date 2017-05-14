@@ -20,5 +20,5 @@ Route::get('/medical-examination/complex-man-examintion', 'MedicalExaminationCon
 Route::get('/medical-examination/complex-woman-examintion', 'MedicalExaminationController@complexWomanExamination');
 Route::get('/medical-examination/complex-onco-examintion', 'MedicalExaminationController@complexOncoExamination');
 Route::get('/medical-examination/complex-rheuma-examintion', 'MedicalExaminationController@complexRheumaExamination');
-Route::get('/medical-examination/compley-allergy-examintion', 'MedicalExaminationController@complexAllergyExamination');
+Route::get('/medical-examination/complex-allergy-examintion', 'MedicalExaminationController@complexAllergyExamination');
 Route::get('/medical-examination/pregnant-examintion', 'MedicalExaminationController@pregnantExamination');
