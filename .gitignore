@@ -2,3 +2,4 @@ node_modules/
 bootstrap/compiled.php
 app/storage/
 .idea/
+vendor/
