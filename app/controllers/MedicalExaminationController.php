@@ -8,6 +8,6 @@
  */
 class MedicalExaminationController extends BaseController {
     public function index() {
-        return "medicalExamination";
+        return View::make("medicalexam.index");
     }
 }
