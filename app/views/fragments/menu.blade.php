@@ -21,7 +21,7 @@
                                 <li class=" dropdown">
                                     <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ t("treatments", "nav") }}</a>
                                 </li>
-                                <li><a href="#">{{ t("examinations", "nav") }}</a></li>
+                                <li><a href="{{ action("MedicalExaminationCOnrtoller@index") }}">{{ t("examinations", "nav") }}</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ action("HistoryController@index") }}">{{ t("past", "nav") }}</a></li>
