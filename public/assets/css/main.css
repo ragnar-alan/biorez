@@ -11,7 +11,7 @@ body {
     padding-top: 5rem;
     min-height: 30rem !important;
 }
-ul.originalHtml{
+ul.originalHtml, ol.originalHtml{
     list-style: disc;
 }
 .slider{
@@ -49,4 +49,11 @@ blockquote {
 .circle-icons{
     width: 100px;
     height: 100px;
+}
+
+.indentation {
+    text-indent: 20px;
+}
+a.list-group-item.defaultCursor {
+    cursor:default;
 }

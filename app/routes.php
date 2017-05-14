@@ -14,6 +14,9 @@
 Route::get('/', 'HomeController@index');
 Route::get('/history', 'HistoryController@index');
 Route::get('/about', 'AboutController@index');
+Route::get('/contact', 'ContactController@index');
+
+//Examinations
 Route::get('/medical-examination', 'MedicalExaminationController@index');
 Route::get('/medical-examination/standard-examination', 'MedicalExaminationController@standardExamination');
 Route::get('/medical-examination/complex-man-examintion', 'MedicalExaminationController@complexManExamination');
