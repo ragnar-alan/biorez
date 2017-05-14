@@ -3,9 +3,14 @@
         <nav class="navbar navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand minimal-padding" href="{{ action('HomeController@index') }}">
-                        <img class="img-responsive logo-width" src="{{ asset('assets/image/logo.png') }}" alt="logo"/>
-                    </a>
+                    <ul>
+                        <li>
+                            <a class="navbar-brand minimal-padding" href="{{ action('HomeController@index') }}">
+                                <span style="float:left">Biorez</span>
+                                <img class="img-responsive logo-width" src="{{ asset('assets/image/logo.png') }}" alt="logo"/>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">

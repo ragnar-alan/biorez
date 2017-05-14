@@ -14,3 +14,4 @@
 Route::get('/', 'HomeController@index');
 Route::get('/history', 'HistoryController@index');
 Route::get('/about', 'AboutController@index');
+Route::get('/medical-examination', 'MedicalExaminationController@index');

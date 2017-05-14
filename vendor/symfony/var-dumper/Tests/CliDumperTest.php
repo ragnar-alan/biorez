@@ -289,16 +289,14 @@ stream resource {@{$ref}
           %sTemplate.php:%d: """
             try {\\n
                 \$this->display(\$context);\\n
-            } catch (Exception \$e) {\\n
+            } catch (%s \$e) {\\n
             """
         }
       }
       %d. %slosure%s() ==> Twig_Template->render(): {
         src: {
           %sCliDumperTest.php:{$line}: """
-                    }\\n
-                };'),\\n
-            ));\\n
+%A
             """
         }
       }
