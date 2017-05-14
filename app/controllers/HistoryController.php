@@ -7,7 +7,8 @@
  * Time: 22:07
  */
 class HistoryController extends BaseController {
-    public function show()
+
+    public function index()
     {
         return View::make("history.history");
     }

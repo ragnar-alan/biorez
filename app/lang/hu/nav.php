@@ -10,5 +10,9 @@ return array(
     "home" =>  "Főoldal",
     "examinations" => "Vizsgálatok",
     "treatments" => "Kezelések",
-    "procedures"    =>  "Eljárások"
+    "procedures"    =>  "Eljárások",
+    "past"  =>  "A múlt",
+    "what_is_that"  =>  "Mi is ez?",
+    "about" =>  "Ismerj meg",
+    "contact"   =>  "Kapcsolat"
 );

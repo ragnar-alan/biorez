@@ -39,3 +39,9 @@ i.circle
     -webkit-box-shadow: 0px 0px 2px 3px #5ea30f;
     box-shadow: 0px 0px 2px 3px #5ea30f;
 }
+div.main-box > a.btn-success {
+    background-color: #5ea30f;
+}
+blockquote {
+    border-left: 5px solid #5ea30f !important;
+}
