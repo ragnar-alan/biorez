@@ -22,7 +22,7 @@ class ContactController extends BaseController
         $text = Input::get("message");
         Mail::send
         (
-            $text,
+            "emails.info.infoemail",
             array(
                 'name' => $name,
                 'emailAddress'  =>  $email,
