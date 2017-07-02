@@ -12,9 +12,13 @@
 */
 
 Route::get('/', 'HomeController@index');
+
 Route::get('/history', 'HistoryController@index');
+
 Route::get('/about', 'AboutController@index');
+
 Route::get('/contact', 'ContactController@index');
+Route::post('/contact/send', 'ContactController@sendMail');
 
 //Examinations
 Route::get('/medical-examination', 'MedicalExaminationController@index');
