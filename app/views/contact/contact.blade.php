@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="row-fluid text-center">
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-default" id="sendMessage">Üzenet küldése
+                                        <button type="submit" class="btn btn-default" id="sendMessage">Üzenet küldése
                                         </button>
                                     </div>
                                 </div>
