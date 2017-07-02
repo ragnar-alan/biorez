@@ -8,7 +8,7 @@
 
 <div>
     Az érdeklődő neve: {{ $name }}<br>
-    Az érdeklődő email címe: {{ $userEmail }}
+    Az érdeklődő email címe: {{ $email }}
     Az érdeklődő üzenete: {{ $message }}
 
 </div>
