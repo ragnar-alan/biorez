@@ -17,7 +17,7 @@
                                     <div class="col-md-12">
                                         <div class="input-group has-feedback" id="nameGroup">
                                             <span class="input-group-addon">Név:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                            <input class="form-control" type="text" id="name"
+                                            <input class="form-control" type="text" name="userName" id="name"
                                                    placeholder="Az ön neve, amin szólíthatom">
                                         </div>
                                     </div>
@@ -29,7 +29,7 @@
                                     <div class="col-md-12">
                                         <div class="input-group has-feedback" id="emailGroup">
                                             <span class="input-group-addon">Em@il:&nbsp;</span>
-                                            <input class="form-control" type="email" id="email"
+                                            <input class="form-control" type="email" name="userEmail" id="email"
                                                    placeholder="Az ön email címe amin kereshetem">
                                         </div>
                                     </div>
