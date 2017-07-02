@@ -15,7 +15,7 @@ class ContactController extends BaseController
 
     public function sendMail()
     {
-        $to = "kecskerezonancia@gmail.com";
+        $to = "boros.tamas456@gmail.com";
         $name = Input::get("userName");
         $email = Input::get("userEmail");
         $subject = "Biorezonancia érdeklődés";
