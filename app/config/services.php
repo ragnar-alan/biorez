@@ -16,7 +16,7 @@ return array(
 
 	'mailgun' => array(
 		'domain' => 'biorez.eu',
-		'secret' => 'pubkey-d2b203284e97044cce02a19fbf0125ce',
+		'secret' => '',
 	),
 
 	'mandrill' => array(
