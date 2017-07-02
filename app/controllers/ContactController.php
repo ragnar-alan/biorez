@@ -35,6 +35,6 @@ class ContactController extends BaseController
                 $message->to($to)->subject($subject);
             }
         );
-        return View::make('contact.thanks', array("name",$name));
+        return View::make('contact.thanks', array("name"=>$name));
     }
 }
