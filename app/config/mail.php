@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => "postmaster@biorez.eu",
 
 	/*
 	|--------------------------------------------------------------------------
