@@ -53,10 +53,7 @@
                                 <div class="row-fluid text-center">
                                     <div class="col-md-12">
                                         <div class="input-group has-feedback" id="captchaGroup">
-                                            {{-- TODO --}}
-                                            <span class="input-group-addon"><span id="elso">'.$rand[0].'</span>+<span id="masodik">'.$rand[1].'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-refresh"></span></span>
-                                            <input class="form-control" type="text" id="captcha" placeholder="Ön nem egy robot, ugye?">
-                                            <input type="hidden" id="captchaNum" value="'.$captchaNum.'">
+                                            <div class="g-recaptcha" data-sitekey="6LdArycUAAAAAAUHXQh10hpiJIka9aU9-fSc1oGp"></div>
                                         </div>
                                     </div>
                                 </div>
