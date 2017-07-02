@@ -41,7 +41,7 @@
                                     <div class="col-md-12">
                                         <div class="input-group" id="messageGroup">
                                             <span class="input-group-addon">Üzenet:</span>
-                                            <textarea class="form-control" rows="4" id="message"
+                                            <textarea class="form-control" rows="4" name="message" id="message"
                                                       placeholder="Üzenete"></textarea>
                                         </div>
                                     </div>
