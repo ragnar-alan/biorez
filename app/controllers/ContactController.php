@@ -27,6 +27,7 @@ class ContactController extends BaseController
                 'name' => $name,
                 'emailAddress'  =>  $email,
                 'subject'       =>  $subject,
+                'text'  => $text
             ),
             function($message) use ($name,$email,$subject,$to)
             {
