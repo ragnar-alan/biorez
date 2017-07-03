@@ -53,10 +53,7 @@
                                 </div>
                                 <div class="row-fluid text-center">
                                     <div class="col-md-12 text-center">
-                                        <div class="input-group has-feedback" id="captchaGroup">
-                                            <div class="g-recaptcha"
-                                                 data-sitekey="6LdArycUAAAAAAUHXQh10hpiJIka9aU9-fSc1oGp"></div>
-                                        </div>
+                                        <div class="g-recaptcha" data-sitekey="6LdArycUAAAAAAUHXQh10hpiJIka9aU9-fSc1oGp"></div>
                                     </div>
                                 </div>
                                 <div class="row-fluid">

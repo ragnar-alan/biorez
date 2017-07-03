@@ -20,7 +20,7 @@ ul.originalHtml, ol.originalHtml{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-image: url('../image/slider_bg.png');
+    background-image: url('../image/main_slider.jpg');
 }
 .minimal-padding {
     padding: 5px;

@@ -43,7 +43,6 @@
                             <li>Emésztési zavarok, székelési nehézségek esetén.</li>
                             <li>Hajhullás, kopaszodás esetén.</li>
                         </ul>
-                        <a href="#" class="btn btn-success">Tovább</a>
                     </div>
                     <div class="col-lg-4 text-center main-box">
                         <i class="circle fa fa-user-md fa-5x"></i>
