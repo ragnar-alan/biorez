@@ -3,3 +3,4 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?rand=').rand(0,100) }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css?rand=').rand(0,100) }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css?rand=').rand(0,100) }}">
+<link rel="shortcut icon" href="{{ asset("assets/image/favicon.ico") }}" type="image/x-icon">
