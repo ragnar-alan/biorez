@@ -12,11 +12,9 @@
 */
 
 Route::get('/', 'HomeController@index');
-
 Route::get('/history', 'HistoryController@index');
-
 Route::get('/about', 'AboutController@index');
-
+Route::get('/what-is-the-biorezonancy', 'AboutBiorezonancyController@index');
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact/send', 'ContactController@sendMail');
 

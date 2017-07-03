@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="jumbotron">
+            <div class="jumbotron" style="background-color: rgb(243, 243, 229);">
                 <h1>Daru Bálint vagyok!</h1>
                 <p>
                     1978-óta dolgozom az egészségügyben, jelenleg a Bács-Kiskun Megyei Kórházban. Hamar megtapasztaltam, hogy a nyugati orvoslás mellett másra is szükség van a helyes és teljes értékű betegellátáshoz. Kerestem azt a lehetőséget, módszert, amivel az eddig tanultakat kiegészíthettem.

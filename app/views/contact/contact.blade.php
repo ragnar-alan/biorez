@@ -9,6 +9,8 @@
                         <div class="col-md-6">
                             <h3>Online elérhetőségeim</h3>
                             Email cím: kecskerezonancia[kukac]gmail.com<br>
+                            Címünk: Doki Centrum <br>
+                            Kecskemét, Hosszú utca 10 I. em.
                         </div>
                         <div class="col-md-6">
                             <h3>Üzenjen most</h3>

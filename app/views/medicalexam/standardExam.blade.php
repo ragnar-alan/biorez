@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="text-center">Standard vizsgálat</h2>
+                <h2>Standard vizsgálat</h2>
                 <p class="lead">
                     Ez a vizsgálat a kéz és láb akupunktúrás pontjain keresztül történik, ami a szervezet működéséről és
                     élettani helyzetéről 80-90%- os képet ad.

@@ -20,39 +20,6 @@
                 <a href="{{action('MedicalExaminationController@standardExamination')}}" class="btn btn-success">Tovább</a>
             </div>
             <div class="col-lg-4 text-center main-box">
-                <i class="circle circle-icons fa fa-male fa-5x"></i>
-                <h3>Komplex férfi vizsgálat</h3>
-                <p class="text-justify indentation">
-                    A Komplex Férfi Kivizsgálás pontosabb eredményekkel szolgál, mintha CT-re, MR-re, vérvizsgálatra vagy ultrahangra, tükrözésre menne! Itt választ kap minden kérdésére a férfiaknál gyakran előforduló problémákkal és egyéb, ki nem mutatott betegségekkel kapcsolatban.
-                </p>
-                <a href="{{action('MedicalExaminationController@complexManExamination')}}" class="btn btn-success">Tovább</a>
-            </div>
-            <div class="col-lg-4 text-center main-box">
-                <i class="circle circle-icons fa fa-female fa-5x"></i>
-                <h3>Komplex női vizsgálat</h3>
-                <p class="text-justify indentation">
-                    A Komplex Női Kivizsgálás részletesebb, nagyságrendekkel több információval szolgál, mintha klasszikus nőgyógyászati szűrésre, vérvizsgálatra vagy ultrahangra menne! Itt választ kap minden kérdésére a nőknél gyakran előforduló problémákkal, a női test működésének különleges összefüggéseivel, és más, ki nem mutatott betegségekkel kapcsolatban.
-                </p>
-                <a href="{{action('MedicalExaminationController@complexWomanExamination')}}" class="btn btn-success">Tovább</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 text-center main-box">
-                <i class="circle circle-icons fa fa-medkit fa-5x"></i>
-                <h3>Komplex onkológiai vizsgálat</h3>
-                <p class="text-justify indentation">A Komplex Onkológiai Kivizsgálás pontosabb eredményekkel szolgál, mintha CT-re, MR-re, vérvizsgálatra vagy ultrahangra, tükrözésre menne! Itt választ kap minden kérdéseire a ki nem mutatott betegségekkel kapcsolatban is
-                </p>
-                <a href="{{action('MedicalExaminationController@complexOncoExamination')}}" class="btn btn-success">Tovább</a>
-            </div>
-            <div class="col-lg-4 text-center main-box">
-                <i class="circle circle-icons fa fa-medkit fa-5x"></i>
-                <h3>Komplex rheuma vizsgálat</h3>
-                <p class="text-justify indentation">
-                    A Komplex Reumatológiai Kivizsgálás sokkal több információt ad testéről, mint a megszokott klinikai vizsgálatok! Itt választ kap minden kérdésére reumatológiai problémáival és egyéb, ki nem mutatott betegségekkel kapcsolatban.
-                </p>
-                <a href="{{action('MedicalExaminationController@complexRheumaExamination')}}" class="btn btn-success">Tovább</a>
-            </div>
-            <div class="col-lg-4 text-center main-box">
                 <i class="circle circle-icons fa fa-medkit fa-5x"></i>
                 <h3>Komplex allergia vizsgálat</h3>
                 <p class="text-justify indentation">
@@ -60,16 +27,50 @@
                 </p>
                 <a href="{{action('MedicalExaminationController@complexAllergyExamination')}}" class="btn btn-success">Tovább</a>
             </div>
+            <div class="col-lg-4 text-center main-box">
+                <i class="circle circle-icons fa fa-user-md fa-5x"></i>
+                <h3>Komplex onkológiai vizsgálat</h3>
+                <p class="text-justify indentation">A Komplex Onkológiai Kivizsgálás pontosabb eredményekkel szolgál, mintha CT-re, MR-re, vérvizsgálatra vagy ultrahangra, tükrözésre menne! Itt választ kap minden kérdéseire a ki nem mutatott betegségekkel kapcsolatban is
+                </p>
+                <a href="{{action('MedicalExaminationController@complexOncoExamination')}}" class="btn btn-success">Tovább</a>
+            </div>
+            {{--<div class="col-lg-4 text-center main-box">--}}
+                {{--<i class="circle circle-icons fa fa-male fa-5x"></i>--}}
+                {{--<h3>Komplex férfi vizsgálat</h3>--}}
+                {{--<p class="text-justify indentation">--}}
+                    {{--A Komplex Férfi Kivizsgálás pontosabb eredményekkel szolgál, mintha CT-re, MR-re, vérvizsgálatra vagy ultrahangra, tükrözésre menne! Itt választ kap minden kérdésére a férfiaknál gyakran előforduló problémákkal és egyéb, ki nem mutatott betegségekkel kapcsolatban.--}}
+                {{--</p>--}}
+                {{--<a href="{{action('MedicalExaminationController@complexManExamination')}}" class="btn btn-success">Tovább</a>--}}
+            {{--</div>--}}
+            {{--<div class="col-lg-4 text-center main-box">--}}
+                {{--<i class="circle circle-icons fa fa-female fa-5x"></i>--}}
+                {{--<h3>Komplex női vizsgálat</h3>--}}
+                {{--<p class="text-justify indentation">--}}
+                    {{--A Komplex Női Kivizsgálás részletesebb, nagyságrendekkel több információval szolgál, mintha klasszikus nőgyógyászati szűrésre, vérvizsgálatra vagy ultrahangra menne! Itt választ kap minden kérdésére a nőknél gyakran előforduló problémákkal, a női test működésének különleges összefüggéseivel, és más, ki nem mutatott betegségekkel kapcsolatban.--}}
+                {{--</p>--}}
+                {{--<a href="{{action('MedicalExaminationController@complexWomanExamination')}}" class="btn btn-success">Tovább</a>--}}
+            {{--</div>--}}
         </div>
         <div class="row">
-            <div class="col-lg-offset-4 col-lg-4 text-center main-box">
-                <i class="circle circle-icons fa fa-child fa-5x"></i>
-                <h3>Baba váró vizsgálat</h3>
-                <p class="text-justify">
-                    Akkor Babaváró vizsgálatunkkal elképzelhető, hogy élete során most került a legközelebb édes kisbabája megszületéséhez…
-                </p>
-                <a href="{{action('MedicalExaminationController@pregnantExamination')}}" class="btn btn-success">Tovább</a>
-            </div>
+
+            {{--<div class="col-lg-4 text-center main-box">--}}
+                {{--<i class="circle circle-icons fa fa-medkit fa-5x"></i>--}}
+                {{--<h3>Komplex rheuma vizsgálat</h3>--}}
+                {{--<p class="text-justify indentation">--}}
+                    {{--A Komplex Reumatológiai Kivizsgálás sokkal több információt ad testéről, mint a megszokott klinikai vizsgálatok! Itt választ kap minden kérdésére reumatológiai problémáival és egyéb, ki nem mutatott betegségekkel kapcsolatban.--}}
+                {{--</p>--}}
+                {{--<a href="{{action('MedicalExaminationController@complexRheumaExamination')}}" class="btn btn-success">Tovább</a>--}}
+            {{--</div>--}}
         </div>
+        {{--<div class="row">--}}
+            {{--<div class="col-lg-offset-4 col-lg-4 text-center main-box">--}}
+                {{--<i class="circle circle-icons fa fa-child fa-5x"></i>--}}
+                {{--<h3>Baba váró vizsgálat</h3>--}}
+                {{--<p class="text-justify">--}}
+                    {{--Akkor Babaváró vizsgálatunkkal elképzelhető, hogy élete során most került a legközelebb édes kisbabája megszületéséhez…--}}
+                {{--</p>--}}
+                {{--<a href="{{action('MedicalExaminationController@pregnantExamination')}}" class="btn btn-success">Tovább</a>--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </div>
 @stop
