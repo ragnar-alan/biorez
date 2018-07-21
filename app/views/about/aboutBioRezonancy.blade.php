@@ -13,7 +13,6 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-12">
-
                                 A biorezonancia a jövő orvostudományának egyik legnagyobb ígérete, mivel a szervezet legalapvetőbb folyamatainak befolyásolásával beindítja, serkenti a szervezet önregenerációját. Manapság egyre többet hallunk a természetgyógyászok és holisztikus szemléletű orvosok által használt biorezonancia terápia és diagnózis alkalmazásáról. Sokan azonban kételkednek, hiszen az orvoslásnak olyan módszere ez, amely a hullámtanban kevésbé járatos emberek számára inkább tűnik misztikusnak, mint tudományosnak. És miért is hinnénk el azt, amit nem értünk? Lássunk tehát egy közérthető magyarázatot a biorezonancia működéséről, és hogy milyen lehetőségeket tartogat számunkra a biorezonancia terápia…
                             </div>
                         </div>
