@@ -13,7 +13,7 @@
                         <p style="font-size: 18px; line-height: 30px;">
                             A szervezet egészének informatikai rehabilitációjával foglalkozó terápiás irányzatot összefoglaló
                             néven biorezonancia terápiának (BRT) nevezik.</p>
-                        <p>
+                        <p style="font-size: 18px; line-height: 30px;">
                             A biorezonancia terápiát az űrhajósok egészségmegőrzésére kezdték kifejleszteni. Az 1920-as évektől foglalkoznak tudósok a bioinformatikával. A szervezet működésének (az életnek)
                             alapja a jól működő, összehangolt sejtinformációs rendszer.</p>
                         <p style="font-size: 18px; line-height: 30px;">

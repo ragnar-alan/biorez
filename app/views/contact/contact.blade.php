@@ -6,11 +6,12 @@
             <div class="col-lg-12">
                 <div class="row-fluid">
                     <div class="row-fluid">
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="font-size: 18px; line-height: 30px;">
                             <h3>Elérhetőségeim</h3>
+                            Daru Bálint <br>
                             Email cím: kecskerezonancia[kukac]gmail.com<br>
-                            Címünk: Doki Centrum <br>
-                            Kecskemét, Hosszú utca 10 I. em.
+                            Cím: Doki Centrum - Kecskemét, Hosszú utca 10 I. em. <br><br>
+                            Telefonszám: 06-20/599-6101
                         </div>
                         <div class="col-md-6">
                             <h3>Üzenjen most</h3>
