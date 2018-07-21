@@ -44,7 +44,6 @@
                             Hamar megtapasztaltam, hogy a nyugati orvoslás mellett másra is szükség van a helyes és teljes értékű betegellátáshoz.
                             Kerestem azt a lehetőséget, módszert, amivel az eddig tanultakat kiegészíthettem.</p>
                         <img src="http://biorez.eu/assets/image/myself.jpg" alt="" class="img-responsive" style="width: 300px;">
-                        <a href="{{url('about')}}" class="btn btn-success">Tovább</a>
                     </div>
                 </div>
             </div>

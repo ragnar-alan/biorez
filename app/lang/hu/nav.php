@@ -9,7 +9,7 @@
 return array(
     "home" =>  "Főoldal",
     "examinations" => "Vizsgálatok",
-    "treatments" => "Kezelések",
+    "treatments" => "Kezelések / Vizsgálat",
     "procedures"    =>  "Eljárások",
     "past"  =>  "A múlt",
     "what_is_that"  =>  "Mi is ez?",
